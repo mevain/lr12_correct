@@ -1,0 +1,13 @@
+<% if not User.find_by_id(session[:current_user_id]) %>
+<%= controller.respond_to do |format| %>
+    <%=   format.html { controller.redirect_to root_path, alert: 'Sign up first.' } %>
+    <% end %>
+<% end %>
+<h1>Введите массив</h1>
+<%= form_tag("/calc/output", :method => "get") do %>
+    <%= label_tag("Массив:") %>
+    <%= text_field_tag(:array)%> <br/>
+    <%= submit_tag("Submit") %>
+  <% end %>
+  <%= link_to "To userlist", users_index_path %> </br>
+  <%= link_to "Log out", sessions_exit_path %>

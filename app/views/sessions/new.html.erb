@@ -1,0 +1,17 @@
+<h1>Sign in</h1>
+<p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
+<%= form_tag("/sessions/create", :method => "get") do %>
+<%= label_tag("Почта:") %> <br>
+<%= text_field_tag(:email) %> <br/>
+<%= label_tag("Пароль:") %> <br>
+<%= password_field_tag(:password) %> <br/>
+<br/>
+<%= submit_tag("Sign in") %>
+<% end %>
+<%= link_to "New user", new_user_path %>
+<% if params[:message] %>
+<p><%= params[:message] %></p>
+<% end %> </br>
+<%= link_to "Log out", sessions_exit_path %> </br>
+<%= link_to "To users", users_path %>

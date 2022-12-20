@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lr12</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <% if User.find_by_id(session[:current_user_id]) %>
+    <p>Current user:<%= User.find_by_id(session[:current_user_id]).username %></p>
+    <% else %>
+    <p>Not logged in</p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
